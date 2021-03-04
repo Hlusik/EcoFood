@@ -14,7 +14,8 @@ window.onload = function () {
 
     if (queryString["productName"]) {
         document.getElementById('product-name').innerHTML = queryString["productName"];
-        document.getElementById('product-img').src = `./img/${queryString["productName"].toLowerCase()}.jpg`;
+        let imgUrl = queryString["productName"].toLowerCase();
+        document.getElementById('product-img').src = `./img/${imgUrl}.jpg`;
         document.getElementById('product-img').src = './img/' + queryString["productName"] + '.jpg';
         document.getElementById('product-img').alt = queryString["productName"];
     }
