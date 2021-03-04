@@ -34,8 +34,10 @@ function scrollToTop(event) {
 
 //-----------go back button-----------------------------------
 let goBackButton = document.getElementById('goBackButton');
-goBackButton.addEventListener('click', goBack)
+if(goBackButton) {
+    goBackButton.addEventListener('click', goBack)
 
-function goBack(event) {
-    window.history.back();
+    function goBack(event) {
+        window.history.back();
+    }
 }
