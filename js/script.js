@@ -80,15 +80,19 @@ function showCard(event){
 function priceByFruit(event){
   let amount = event.target.value; //new amount - string
   let fruitId = event.target.id;
+  let fruitPrice = event.target.parentNode.parentNode;//input->td->tr
 
   // ------------update fruit amount --------------------------------------
   let fruit = fruits.find(item => item.id === Number(fruitId));
   if(fruit){
-    fruit.amount = amount;
+    if(Number(amount) === 0) { // delete item
+      deleteProduct(event, fruitId, fruit); 
+    } else {
+      fruit.amount = amount;
+    }
   }
 
-  //-------------find priceByFruit element ----------------------
-  let fruitPrice = event.target.parentNode.parentNode;//input->td->tr
+  //-------------find priceByFruit element ----------------------  
   fruitPrice.getElementsByTagName('span')[0].innerText = fruit.amount*fruit.price;
 
   totalPrice();
@@ -96,9 +100,27 @@ function priceByFruit(event){
 
 function totalPrice(){
   let totalPrice = document.getElementById('total-card');
+  let count = document.getElementById('count');
   let total = 0;
+  let totalAmount = 0;
+
   for (let i = 0; i < fruits.length; i++) {
     total += fruits[i].amount * fruits[i].price;
+    totalAmount += Number(fruits[i].amount);
   }
   totalPrice.innerText = total;
+  
+  count.innerText = totalAmount;
+}
+
+function deleteProduct(event, fruitId, fruit) {
+  let fruitPrice = event.target.parentNode.parentNode;//input->td->tr
+  let result = confirm("Do you want to delete?");
+
+  if (result) {
+    fruits = fruits.filter(item => item.id !== Number(fruitId));
+    fruitPrice.parentNode.removeChild(fruitPrice); //  or showCard();
+  } else {
+    event.target.value = fruit.amount;
+  }
 }
