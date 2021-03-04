@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="./css/style.css" type="text/css">
     <link rel="stylesheet" href="./css/productStyle.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./css/menu.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,800;1,400&family=Open+Sans&display=swap" rel="stylesheet">
@@ -13,24 +14,34 @@
 </head>
 <body class="main-wrapper">
     <div class="white-background">
+        <a id="buttonTop"><i class="fas fa-arrow-up"></i></a>
         <header>
             <section class="header-top">
-                <a id="logoButton" href="#"><img src="img/logo.png" alt="Eco Food"></a>
-                <a href="#" class="cartLink">Cart <i class="fas fa-shopping-basket"></i> (<span>0</span>)</a>
+                <a id="logoButton" href="index.html"><img src="img/logo.png" alt="Eco Food"></a>
+                <article>
+                    <a href="login.html" class="button" id="logInButton">Log in</a>
+                    <a id="show-card" href="#" class="cartLink" data-toggle="modal" data-target="#exampleModal">
+                        Cart <i class="fas fa-shopping-basket"></i> (<span id="count">0</span>)
+                    </a>
+                    <button id="clearCard" class="button">Clear card</button>
+                </article>
             </section>
-            <nav class="header-nav">
-                <ul id="header-nav-list">
-                    <li><a href="">Home</a></li>
-                    <li><a href="#catalog">Catalog <i class="fa fa-caret-down"></i></a>
-                        <ul>
-                            <li><a href="#">Fruits</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Greens</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#sale">About us</a></li>
-                    <li><a href="#blog">Contact</a></li>
-                </ul>
+            <nav id="menuToggle">
+                 <!--
+                A fake / hidden checkbox is used as click reciever,
+                so you can use the :checked selector on it.
+                -->
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <ul id="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" id="catalog">Catalog</a></li>                
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>               
             </nav>
             <hr>
         </header>
@@ -74,7 +85,8 @@
     </div>
 
     <script src="./js/jsProduct.js"></script>
-    <script src="./js/js.js"></script>
+    <script src="./js/secondaryButtons.js"></script>
+    <script src="./js/script.js"></script>   
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
