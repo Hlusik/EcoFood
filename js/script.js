@@ -85,7 +85,7 @@ function priceByFruit(event){
   // ------------update fruit amount --------------------------------------
   let fruit = fruits.find(item => item.id === Number(fruitId));
   if(fruit){
-    if(Number(amount) === 0) { // delete item
+    if(Number(amount) < 1) { // delete item
       deleteProduct(event, fruitId, fruit); 
     } else {
       fruit.amount = amount;
@@ -121,6 +121,6 @@ function deleteProduct(event, fruitId, fruit) {
     fruits = fruits.filter(item => item.id !== Number(fruitId));
     fruitPrice.parentNode.removeChild(fruitPrice); //  or showCard();
   } else {
-    event.target.value = fruit.amount;
+    showCard();
   }
 }
