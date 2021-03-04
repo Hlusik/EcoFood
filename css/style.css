@@ -208,6 +208,15 @@ input[type="email"] {
 
 /*---------------hamburger-------------------*/
 @media only screen and (max-width: 425px) {
+    .white-background {
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-wrapper {
+        background: none;
+    }
+
     .active {
         background-color: #4CAF50;
         color: white;
@@ -226,16 +235,4 @@ input[type="email"] {
         width: 90%;
         align-items: center;
     }
-}
-
-@media only screen and (max-width: 320px) {
-    .white-background {
-        margin: 0;
-        padding: 0;
-    }
-
-    .main-wrapper {
-        background: none;
-    }
-
 }
